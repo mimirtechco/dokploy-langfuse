@@ -7,6 +7,8 @@ services:
         condition: service_healthy
     expose:
       - 3030
+    networks:
+      - dokploy-network
     environment: &langfuse-worker-env
       DATABASE_URL: ${DATABASE_URL:-postgresql://langfuse:langfuse@postgres:5432/langfuse}
       SALT: ${SALT:-mysalt}
